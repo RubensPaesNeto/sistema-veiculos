@@ -37,5 +37,5 @@ const UsuariosRoutes = require("./routes/UsuarioRoutes.js")
 app.use("/usuarios", UsuariosRoutes)
 
 app.listen(8000, (err) => {
-    console.log("aplicação rodandoem localhost:8000")
+    console.log("aplicação rodando em localhost:8000")
 });
