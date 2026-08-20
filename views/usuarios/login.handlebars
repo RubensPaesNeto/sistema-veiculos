@@ -1,0 +1,37 @@
+<div class="card form-largura-max">
+    <div class="card__body">
+        <h1>Entrar</h1>
+        <p>Acesse sua conta para gerenciar os veículos do sistema.</p>
+
+        {{#if erros}}
+            <div class="alerta alerta--erro">
+                <ul class="lista-erros">
+                    {{#each erros}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
+
+        <form action="/usuarios/login" method="POST" novalidate>
+
+            <div class="form-grupo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" value="{{valores.email}}" placeholder="voce@email.com" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Sua senha" required>
+            </div>
+
+            <div class="form-acoes">
+                <button type="submit" class="btn btn--primary btn--block">Entrar</button>
+            </div>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+            Ainda não tem conta? <a href="/usuarios/cadastro">Criar conta</a>
+        </p>
+    </div>
+</div>

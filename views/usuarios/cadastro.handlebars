@@ -1,0 +1,42 @@
+<div class="card form-largura-max">
+    <div class="card__body">
+        <h1>Criar conta</h1>
+        <p>Cadastre-se para gerenciar os veículos do sistema.</p>
+
+        {{#if erros}}
+            <div class="alerta alerta--erro">
+                <ul class="lista-erros">
+                    {{#each erros}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
+
+        <form action="/usuarios/cadastro" method="POST" novalidate>
+
+            <div class="form-grupo">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" value="{{valores.nome}}" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" value="{{valores.email}}" placeholder="voce@email.com" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Mínimo de 6 caracteres" required>
+            </div>
+
+            <div class="form-acoes">
+                <button type="submit" class="btn btn--primary btn--block">Criar conta</button>
+            </div>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem;">
+            Já tem uma conta? <a href="/usuarios/login">Entrar</a>
+        </p>
+    </div>
+</div>

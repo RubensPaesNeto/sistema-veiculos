@@ -1,0 +1,33 @@
+<div class="secao__cabecalho">
+    <div>
+        <h1>{{veiculo.modelo}}</h1>
+        <p>Detalhes do veículo #{{veiculo.id}}</p>
+    </div>
+    <div class="acoes-tabela">
+        <a href="/veiculos/editar/{{veiculo.id}}" class="btn btn--secondary">Editar</a>
+        <a href="/veiculos/todos" class="btn btn--secondary">Voltar</a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card__body">
+        <div class="detalhes-grid">
+            <div class="detalhes-item">
+                <div class="rotulo">Placa</div>
+                <div class="valor"><span class="placa-badge">{{veiculo.placa}}</span></div>
+            </div>
+            <div class="detalhes-item">
+                <div class="rotulo">Modelo</div>
+                <div class="valor">{{veiculo.modelo}}</div>
+            </div>
+            <div class="detalhes-item">
+                <div class="rotulo">Cor</div>
+                <div class="valor">{{veiculo.cor}}</div>
+            </div>
+            <div class="detalhes-item">
+                <div class="rotulo">Ano</div>
+                <div class="valor">{{veiculo.ano}}</div>
+            </div>
+        </div>
+    </div>
+</div>

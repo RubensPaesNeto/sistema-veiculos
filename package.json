@@ -1,21 +1,28 @@
 {
-  "name": "projeto-ptas2",
+  "name": "sistema-transito",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Sistema de gerenciamento de veículos com cadastro de usuários, autenticação e CRUD completo.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Gustavo Passianoto e Rubens Paes Neto",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^6.5.0",
-    "bcryptjs": "^3.0.2",
-    "express": "^4.21.2",
-    "express-handlebars": "^8.0.1",
-    "jsonwebtoken": "^9.0.2",
-    "prisma": "^6.5.0"
+    "@prisma/client": "^5.19.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2"
   },
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prisma": "^5.19.1"
+  }
 }

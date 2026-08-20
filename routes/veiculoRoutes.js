@@ -1,10 +1,16 @@
 const router = require("express").Router();
-const UsuarioController = require("../controllers/UsuarioController") 
 
-const VeiculoController = require("../controllers/veiculoController")
+const VeiculoController = require("../controllers/VeiculoController");
 
- router.post("/cadastro", UsuarioController.verificaAutenticacao,VeiculoController.cadastrar);
+router.get("/todos", VeiculoController.buscar);
+router.get("/cadastro", VeiculoController.formCadastro);
+router.post("/cadastro", VeiculoController.cadastrar);
 
- router.get("/buscar/:id?", UsuarioController.verificaAutenticacao, UsuarioController.verificaIsAdmin,VeiculoController.buscar);
+router.get("/buscar/:id", VeiculoController.buscarPorId);
 
- module.exports = router;
+router.get("/editar/:id", VeiculoController.formEditar);
+router.post("/editar/:id", VeiculoController.editar);
+
+router.post("/deletar/:id", VeiculoController.deletar);
+
+module.exports = router;

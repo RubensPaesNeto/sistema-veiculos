@@ -1,0 +1,52 @@
+<div class="secao__cabecalho">
+    <div>
+        <h1>Veículos cadastrados</h1>
+        <p>{{total}} veículo(s) no total.</p>
+    </div>
+    <a href="/veiculos/cadastro" class="btn btn--primary">+ Cadastrar veículo</a>
+</div>
+
+{{#if veiculos.length}}
+    <div class="tabela-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modelo</th>
+                    <th>Placa</th>
+                    <th>Cor</th>
+                    <th>Ano</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each veiculos}}
+                    <tr>
+                        <td>#{{this.id}}</td>
+                        <td>{{this.modelo}}</td>
+                        <td><span class="placa-badge">{{this.placa}}</span></td>
+                        <td>{{this.cor}}</td>
+                        <td>{{this.ano}}</td>
+                        <td>
+                            <div class="acoes-tabela">
+                                <a href="/veiculos/buscar/{{this.id}}" class="btn btn--secondary btn--sm">Ver</a>
+                                <a href="/veiculos/editar/{{this.id}}" class="btn btn--secondary btn--sm">Editar</a>
+                                <form action="/veiculos/deletar/{{this.id}}" method="POST" class="form-inline" data-confirmar-exclusao>
+                                    <button type="submit" class="btn btn--danger btn--sm">Excluir</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+{{else}}
+    <div class="card">
+        <div class="estado-vazio">
+            <h3>Nenhum veículo cadastrado ainda</h3>
+            <p>Comece cadastrando o primeiro veículo do sistema.</p>
+            <a href="/veiculos/cadastro" class="btn btn--primary">+ Cadastrar veículo</a>
+        </div>
+    </div>
+{{/if}}

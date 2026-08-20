@@ -1,0 +1,96 @@
+<h1>Editar Veículo</h1>
+
+<form action="/veiculos/editar/{{veiculo.id}}" method="POST">
+
+    <div>
+        <label for="modelo">Modelo</label>
+        <input
+            type="text"
+            id="modelo"
+            name="modelo"
+            value="{{veiculo.modelo}}"
+        >
+    </div>
+
+    <div>
+        <label for="placa">Placa</label>
+        <input
+            type="text"
+            id="placa"
+            name="placa"
+            value="{{veiculo.placa}}"
+            maxlength="8"
+            minlength="7"
+        >
+    </div>
+
+    <div>
+        <label for="cor">Cor</label>
+        <input
+            type="text"
+            id="cor"
+            name="cor"
+            value="{{veiculo.cor}}"
+        >
+    </div>
+
+    <div>
+        <label for="ano">Ano</label>
+        <input
+            type="number"
+            id="ano"
+            name="ano"
+            value="{{veiculo.ano}}"
+            min="1886"
+            max="2100"
+        >
+    </div>
+
+    <button type="submit">
+        Salvar Alterações
+    </button>
+
+</form><div class="card form-largura-max">
+    <div class="card__body">
+        <h1>Editar veículo</h1>
+        <p>Atualize os dados do veículo #{{veiculo.id}}.</p>
+
+        {{#if erros}}
+            <div class="alerta alerta--erro">
+                <ul class="lista-erros">
+                    {{#each erros}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
+
+        <form action="/veiculos/editar/{{veiculo.id}}" method="POST" novalidate>
+
+            <div class="form-grupo">
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" name="modelo" value="{{veiculo.modelo}}" required>
+            </div>
+
+            <div class="form-grupo form-grupo--placa">
+                <label for="placa">Placa</label>
+                <input type="text" id="placa" name="placa" value="{{veiculo.placa}}" maxlength="8" minlength="7" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="cor">Cor</label>
+                <input type="text" id="cor" name="cor" value="{{veiculo.cor}}" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="ano">Ano</label>
+                <input type="number" id="ano" name="ano" value="{{veiculo.ano}}" min="1886" max="2100" required>
+            </div>
+
+            <div class="form-acoes">
+                <button type="submit" class="btn btn--primary btn--block">Salvar alterações</button>
+                <a href="/veiculos/todos" class="btn btn--secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

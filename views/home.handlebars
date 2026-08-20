@@ -1,1 +1,56 @@
-<h1>Bem-vindo ao site do orgão mais amado do Brasil👌</h1>
+<section class="hero">
+    <div class="hero__conteudo">
+        <span class="hero__eyebrow">/// gerenciamento de veículos</span>
+        <h1>Cadastre, consulte e gerencie veículos em um só lugar.</h1>
+        <p>
+            Sistema para controle de veículos com cadastro, edição, consulta por
+            placa e exclusão de registros — construído com Node.js, Express,
+            Handlebars e Prisma.
+        </p>
+        <div class="hero__acoes">
+            <a href="/veiculos/cadastro" class="btn btn--primary">+ Cadastrar veículo</a>
+            <a href="/veiculos/todos" class="btn btn--secondary">Ver veículos</a>
+        </div>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="stats__item">
+        <div class="stats__numero">{{totalVeiculos}}</div>
+        <div class="stats__rotulo">Veículos cadastrados</div>
+    </div>
+    <div class="stats__item">
+        <div class="stats__numero">CRUD</div>
+        <div class="stats__rotulo">Completo e validado</div>
+    </div>
+    <div class="stats__item">
+        <div class="stats__numero">MVC</div>
+        <div class="stats__rotulo">Arquitetura do projeto</div>
+    </div>
+</div>
+
+<div class="secao">
+    <div class="secao__cabecalho">
+        <h2>Como funciona</h2>
+    </div>
+    <div class="detalhes-grid">
+        <div class="detalhes-item">
+            <div class="rotulo">01 · Cadastro</div>
+            <div class="valor" style="font-size: 1rem; font-weight: 500; color: var(--text-muted);">
+                Registre modelo, placa, ano e cor com validação de dados.
+            </div>
+        </div>
+        <div class="detalhes-item">
+            <div class="rotulo">02 · Consulta</div>
+            <div class="valor" style="font-size: 1rem; font-weight: 500; color: var(--text-muted);">
+                Veja todos os veículos ou os detalhes de um registro específico.
+            </div>
+        </div>
+        <div class="detalhes-item">
+            <div class="rotulo">03 · Gerenciamento</div>
+            <div class="valor" style="font-size: 1rem; font-weight: 500; color: var(--text-muted);">
+                Edite ou remova veículos a qualquer momento.
+            </div>
+        </div>
+    </div>
+</div>

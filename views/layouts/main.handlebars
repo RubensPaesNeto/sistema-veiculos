@@ -1,24 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sistema de Trânsito</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header style="text-align: center;">
-        <h1>Departamento de trânsito </h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/veiculos/cadastro">Cadastrar Veiculos</a>
-            <a href="/veiculos/todos">Ver Veiculos</a>
-        </nav>
+
+    <header class="navbar">
+        <div class="navbar__inner">
+            <a href="/" class="navbar__brand">
+                <span class="navbar__mark"></span>
+                Sistema de Trânsito
+            </a>
+
+            <ul class="navbar__links">
+                <li><a href="/">Início</a></li>
+                <li><a href="/veiculos/todos">Veículos</a></li>
+                {{#if usuarioLogado}}
+                    <li>
+                        <form action="/usuarios/logout" method="POST" class="form-inline">
+                            <button type="submit" class="btn btn--secondary btn--sm">Sair</button>
+                        </form>
+                    </li>
+                {{else}}
+                    <li><a href="/usuarios/login">Entrar</a></li>
+                    <li><a href="/usuarios/cadastro" class="btn btn--primary btn--sm">Criar conta</a></li>
+                {{/if}}
+            </ul>
+        </div>
+        <div class="lane-line"></div>
     </header>
-    <hr/>
+
     <main>
-        {{{body}}}
+        <div class="container">
+
+            {{#if sucesso}}
+                <div class="alerta alerta--sucesso" data-fechar-alerta>✓ {{sucesso}}</div>
+            {{/if}}
+
+            {{#if erro}}
+                <div class="alerta alerta--erro" data-fechar-alerta>⚠ {{erro}}</div>
+            {{/if}}
+
+            {{{body}}}
+        </div>
     </main>
-      <hr/>
-    <footer style="text-align: center;">Nenhum Direito Reservado.</footer>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <span>Sistema de Trânsito &copy; {{anoAtual}}</span>
+            <span>Gustavo Passianoto &amp; Rubens Paes Neto</span>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
 </body>
 </html>
