@@ -1,23 +1,44 @@
+<div class="card form-largura-max">
+    <div class="card__body">
+        <h1>Cadastrar veículo</h1>
+        <p>Preencha os dados abaixo para adicionar um novo veículo.</p>
 
-    <h1>Form view</h1>
+        {{#if erros}}
+            <div class="alerta alerta--erro">
+                <ul class="lista-erros">
+                    {{#each erros}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
 
-    <form action="/veiculos/cadastro" method="post">
-        <div>
-            <label for="modelo">modelo</label>
-            <input type="text" id="modelo" name="modelo">
-        </div>
-        <div>
-            <label for="placa">Placa</label>
-            <input type="text" id="placa" name="placa" maxlength="8" minlength="7">
-        </div>
-        <div>
-            <label for="cor">Cor</label>
-            <input type="text" id="cor" name="cor">
-        </div>
-        <div>
-            <label for="ano">Ano</label>
-            <input type="number" id="ano" name="ano" min="1886" max="2100">
-        </div>
+        <form action="/veiculos/cadastro" method="POST" novalidate>
 
-        <input type="submit" value="Cadastrar"/>
-    </form>
+            <div class="form-grupo">
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" name="modelo" value="{{valores.modelo}}" placeholder="Ex: Honda Civic" required>
+            </div>
+
+            <div class="form-grupo form-grupo--placa">
+                <label for="placa">Placa</label>
+                <input type="text" id="placa" name="placa" value="{{valores.placa}}" maxlength="8" minlength="7" placeholder="ABC1D23" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="cor">Cor</label>
+                <input type="text" id="cor" name="cor" value="{{valores.cor}}" placeholder="Ex: Preto" required>
+            </div>
+
+            <div class="form-grupo">
+                <label for="ano">Ano</label>
+                <input type="number" id="ano" name="ano" value="{{valores.ano}}" min="1886" max="2100" placeholder="Ex: 2022" required>
+            </div>
+
+            <div class="form-acoes">
+                <button type="submit" class="btn btn--primary btn--block">Cadastrar</button>
+                <a href="/veiculos/todos" class="btn btn--secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
